@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING
 import pandas as pd
 
 if TYPE_CHECKING:
-    from sqlalchemy import engine
+    from sqlalchemy.engine.base import Engine
 
 
 def samtools_stats_to_dict(metric_path: str, job_uuid: str) -> dict:
@@ -59,7 +59,7 @@ def samtools_stats_to_dict(metric_path: str, job_uuid: str) -> dict:
 
 
 def run(
-    job_uuid: str, metric_path: str, bam: str, input_state: str, engine: "engine"
+    job_uuid: str, metric_path: str, bam: str, input_state: str, engine: Engine
 ) -> None:
     data_dict = samtools_stats_to_dict(metric_path, job_uuid)
     df = pd.DataFrame(data_dict)
