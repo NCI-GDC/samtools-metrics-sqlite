@@ -5,7 +5,7 @@ from typing import TYPE_CHECKING
 import pandas as pd
 
 if TYPE_CHECKING:
-    from sqlalchemy import engine
+    from sqlalchemy.engine.base import Engine
 
 
 def samtools_flagstat_to_df(metric_path: str) -> pd.DataFrame:
@@ -27,7 +27,7 @@ def samtools_flagstat_to_df(metric_path: str) -> pd.DataFrame:
 
 
 def run(
-    job_uuid: str, metric_path: str, bam: str, input_state: str, engine: "engine"
+    job_uuid: str, metric_path: str, bam: str, input_state: str, engine: Engine
 ) -> None:
     df = samtools_flagstat_to_df(metric_path)
     df["job_uuid"] = job_uuid
