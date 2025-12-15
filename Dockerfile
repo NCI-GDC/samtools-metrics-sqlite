@@ -29,4 +29,4 @@ USER app
 
 ENTRYPOINT ["python", "-m","samtools_metrics_sqlite"]
 
-CMD ["--help"]
+# CMD ["--help"]
