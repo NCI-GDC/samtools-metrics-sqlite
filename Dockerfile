@@ -27,6 +27,6 @@ RUN pip install --no-deps -r requirements.txt \
 
 USER app
 
-ENTRYPOINT ["python", "-m","samtools_metrics_sqlite"]
+ENTRYPOINT ["samtools_metrics_sqlite"]
 
 # CMD ["--help"]
